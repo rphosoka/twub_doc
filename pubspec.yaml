@@ -1,0 +1,27 @@
+name: twub_doc
+description: This is TwubDoc!
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  flare_splash_screen: ^3.0.0
+
+dev_dependencies:
+  mockito: ^4.1.1
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: any
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/twub_doc.flr
