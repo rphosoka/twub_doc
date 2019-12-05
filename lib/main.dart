@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 
 import 'package:twub_doc/pages/home_page.dart';
-import 'package:twub_doc/pages/library_page.dart';
-import 'package:twub_doc/pages/timeline_page.dart';
+// import 'package:twub_doc/pages/library_page.dart';
+// import 'package:twub_doc/pages/timeline_page.dart';
 
 void main() => runApp(MyApp());
 
