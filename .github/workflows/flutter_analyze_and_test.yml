@@ -4,9 +4,8 @@ on:
   pull_request:
     types: [opened, synchronize]
   push:
-    branches: 
+    branches:
       - master
-      - codecov-test
 
 jobs:
   test:
@@ -18,8 +17,4 @@ jobs:
           channel: 'stable'
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter test --verbose --coverage --coverage-path=~/coverage/lcov.info
-      - uses: codecov/codecov-action@v1.0.2
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: ~/coverage/lcov.info
+      - run: flutter test --verbose
