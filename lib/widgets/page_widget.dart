@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PageWidget extends StatefulWidget {
-  final Widget child;
-  final int pageIndex;
-
   const PageWidget({
     Key key,
-    @required this.child,
-    @required this.pageIndex,
   }) : super(key: key);
 
   PageWidgetState createState() => PageWidgetState();
@@ -15,6 +10,20 @@ class PageWidget extends StatefulWidget {
 
 class PageWidgetState extends State<PageWidget> {
   PageController _pageController;
+  int _pageIndex = 0;
+
+  List<BottomNavigationBarItem> buildBottomNavBarItems() {
+    return [
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.library_books),
+        title: const Text('ライブラリ'),
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.timeline),
+        title: const Text('タイムライン'),
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -31,20 +40,34 @@ class PageWidgetState extends State<PageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('hoge'),
+      ),
       body: PageView(
         controller: _pageController,
-        children: <Widget>[
-          Text('hoge'),
-          Text('hogehoge')
-        ],
+        children: <Widget>[Text('hoge'), Text('hogehoge')],
+        onPageChanged: (index) {
+          pageChanged(index);
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _onTabTapped,
+        currentIndex: _pageIndex,
+        items: buildBottomNavBarItems(),
       ),
     );
   }
 
-  void changePage(int pageIndex) {
+  void pageChanged(int index) {
     setState(() {
-      _pageController.animateToPage(pageIndex, duration: null, curve: null);
+      _pageIndex = index;
+    });
+  }
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _pageIndex = index;
+      _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.ease);
     });
   }
 }
-

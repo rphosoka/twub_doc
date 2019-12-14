@@ -8,23 +8,14 @@ class BasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int hoge = 0;
+
     return Scaffold(
-      // TODO: 各ページからタイトルテキストを取得する
-      appBar: AppBar(
-        title: const Text('TwubDoc'),
-      ),
       body: Center(
         child: PageWidget(
           key: _key,
-          pageIndex: 1,
-          child: Column(
-            children: <Widget>[
-              Text('fuga'),
-            ],
-          ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 }
