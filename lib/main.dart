@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 
-import 'package:twub_doc/pages/home_page.dart';
-// import 'package:twub_doc/pages/library_page.dart';
-// import 'package:twub_doc/pages/timeline_page.dart';
+import 'package:twub_doc/pages/base_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,11 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TwubDoc',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: SplashScreen.navigate(
         name: 'assets/twub_doc.flr',
-        next: (context) => const HomePage(title: 'Home'),
+        next: (context) => BasePage(),
         until: () => Future.delayed(Duration(seconds: 3)),
         startAnimation: 'splash',
         backgroundColor: const Color(0xffffffff),
